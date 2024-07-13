@@ -1,0 +1,26 @@
+public DigitalClock() {
+        initComponents();
+        new Thread(){
+            public void run(){
+                
+                while(true){
+                  
+                    Calendar cal=new GregorianCalendar();
+                    int hour=cal.get(Calendar.HOUR);
+                    int min=cal.get(Calendar.MINUTE);
+                    int sec=cal.get(Calendar.SECOND);
+                  
+                    int AM_PM=cal.get(Calendar.AM_PM);
+                    String Am_Pm="";
+                    if(AM_PM==1){
+                        
+                        Am_Pm="PM";
+                    }
+                    else{
+                        Am_Pm="AM";
+                    }
+                   clocklbl.setText(""+hour+":"+min+":"+sec+" "+Am_Pm); 
+                }
+            }
+        }.start();
+    }
